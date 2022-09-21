@@ -10,7 +10,6 @@
           action="/post/likePost/<%= post.id %>?_method=PUT"
           method="POST"
         >
-          <button class="btn btn-primary fa fa-heart" type="submit"></button>
         </form>
         <%if(post.user == user.id){ %>
         <form
