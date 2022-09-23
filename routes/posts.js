@@ -8,4 +8,10 @@ router.get("/:id", ensureAuth, postsController.getPost);
 
 router.post("/createPost", postsController.createPost);
 
+// Favorite a snippet
+router.post('/selectFavorite', postsController.selectFavorite)
+
+// Unfavorite a snippet
+router.post('/deselectFavorite', postsController.deselectFavorite)
+
 module.exports = router;

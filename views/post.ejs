@@ -1,8 +1,13 @@
 <%- include('partials/header') -%>
 <div class="container">
   <div class="row justify-content-center mt-5">
-    <div class="col-6">
+    <div class="col-6" data-id="<%= post._id%>">
       <h2><%= post.title %></h2>
+      <% if(favorites.includes(post._id)) { %>
+        <button class="unfavorite_btn">Unfavorite</button>
+        <%} else {%>
+        <button class="favorite_btn">Favorite</button>
+      <%}%>
       <img class="img-fluid" src="<%= post.image%>" />
       <div class="row justify-content-between">
         <form
@@ -46,7 +51,10 @@
     <ul style="list-style-type: none;">
       <% for(let i=0; i<comments.length; i++) {%>
         <li class="col-6 justify-content-between mt-5">
-          <%= comments[i].brands %>
+          <a href="/comment/<%= comments[i]._id%>">
+            <h3><%= comments[i].brands %></h3>
+          </a>
+          
         </li>
       <% } %>
     </ul>
@@ -56,5 +64,5 @@
     </div>
   </div>
 </div>
-
+<script src="../js/main.js"></script>
 <%- include('partials/footer') -%>

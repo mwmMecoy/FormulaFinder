@@ -21,6 +21,19 @@
         <div class="row justify-content-center mt-5">
           <a class="btn btn-primary" href="/feed">Return to Feed</a>
         </div>  
+        <h4>Favorites</h4>
+        <div id="favoritesContainer">
+            <% for(i = 0; i < favorites.length; i++){ %>
+                <div class="snippet in pubDash" data-id='<%=favorites[i]._id%>'>
+                <h3 class="snippet">
+                  <a href="/post/<%=favorites[i]._id%>">
+                    <%= favorites[i].company %>
+                  </a>
+                    
+                </h3>
+                </div>
+            <% } %>
+        </div>
       </div>  
     </div>
   </div>
