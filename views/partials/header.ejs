@@ -23,13 +23,20 @@
       integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="./css/style.css"/>
   </head>
   <body>
     <header class="container">
-      <div class="text-center">
-        <h1 class=""><a href="/profile">Formula Finder</a></h1>
-        <span>A quick tool to find and store formula near you</span>
+      <div class="navbar bg-base-100">
+        <div class="flex-1">
+          <a class="btn btn-ghost normal-case text-xl">Formula Finder</a>
+        </div>
+        <div class="flex-none">
+          <ul class="menu menu-horizontal p-0">
+            <li><a href="/feed">Locations</a></li>
+            <li><a href="/login">Login</a></li>
+          </ul>
+        </div>
       </div>
     </header>
   </body>
