@@ -24,13 +24,14 @@
         <h4>Favorites</h4>
         <div id="favoritesContainer">
             <% for(i = 0; i < favorites.length; i++){ %>
-                <div class="snippet in pubDash" data-id='<%=favorites[i]._id%>'>
-                <h3 class="snippet">
-                  <a href="/post/<%=favorites[i]._id%>">
-                    <%= favorites[i].company %>
-                  </a>
-                    
-                </h3>
+                <div class="card w-96 bg-secondary shadow-xl">
+                  <div class="card-body">
+                    <h2 class="card-title "><%= favorites[i].company%></h2>
+                    <p><%= favorites[i].address%></p>
+                    <div class="card-actions justify-end">
+                      <a href="/post/<%= favorites[i]._id%>"><button class="btn btn-primary">Check Updates</button></a>
+                    </div>
+                  </div>
                 </div>
             <% } %>
         </div>
