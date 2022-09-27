@@ -21,9 +21,6 @@ How to use cloudinary to allow 3rd party image uploads.
 ## To Do:
 [] Remove remaining instances of BootStrap and convert to TailWindCSS
 [] Add additional display information to location product updates
-[] 
-[]
-[]
 
 
 
