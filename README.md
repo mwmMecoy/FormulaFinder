@@ -3,13 +3,12 @@ This is a passion project. Having a child during the pandemic made me accutely a
 
 **Link to project:** Not Yet Live
 
-![alt tag](http://placecorgi.com/1200/650)
 
 ## How It's Made:
 
-**Tech used:** HTML, CSS, JavaScript, Node
+**Tech used:** HTML, CSS, JavaScript, Node, TailwindCSS, MongoDB, cloudinary
 
-Here's where you can go to town on how you actually built this thing. Write as much as you can here, 
+My first solo project constructed from the ground up. Starting with a simple post creation app
 
 ## Optimizations
 *(optional)*
@@ -17,6 +16,14 @@ Here's where you can go to town on how you actually built this thing. Write as m
 
 
 ## Lessons Learned:
+How to use cloudinary to allow 3rd party image uploads.
+
+## To Do:
+[] Remove remaining instances of BootStrap and convert to TailWindCSS
+[] Add additional display information to location product updates
+[] 
+[]
+[]
 
 
 

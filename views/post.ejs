@@ -33,7 +33,7 @@
     </div>
     <div class="mt-5">
       <h2>Post an inventory update</h2>
-      <form action="/comment/createComment/<%=post._id%>" method="POST">
+      <form action="/comment/createComment/<%=post._id%>" enctype="multipart/form-data" method="POST">
         <div class="mb-3">
             <label for="brands" class="form-label">Available Brands</label>
             <input type="text" class="form-control" id="brands" name="brands">
