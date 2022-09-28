@@ -1,42 +1,51 @@
 <%- include('partials/header') -%>
-<div class="container">
-  <div class="row mt-5">
-      <div class="col-6">
-          <div>
-              <p><strong>User Name</strong>: <%= user.userName %></p>
-              <p><strong>Email</strong>: <%= user.email %></p>
-              <a href="/logout" class="col-3 btn btn-primary">Logout</a>
-          </div>
-          
-      <div class="col-6">
-        <ul class="row list-unstyled">
-        <% for(var i=0; i<posts.length; i++) {%>
-          <li class="col-6 justify-content-between mt-5">
-            <a href="/post/<%= posts[i]._id%>">
-              <img class="img-fluid" src="<%= posts[i].image%>">
-            </a>
-          </li>
-        <% } %>
-        </ul>
-        <div class="row justify-content-center mt-5">
-          <a class="btn btn-primary" href="/feed">Return to Feed</a>
-        </div>  
-        <h4>Favorites</h4>
-        <div id="favoritesContainer">
-            <% for(i = 0; i < favorites.length; i++){ %>
-                <div class="card w-96 bg-secondary shadow-xl">
-                  <div class="card-body">
-                    <h2 class="card-title "><%= favorites[i].company%></h2>
-                    <p><%= favorites[i].address%></p>
-                    <div class="card-actions justify-end">
-                      <a href="/post/<%= favorites[i]._id%>"><button class="btn btn-primary">Check Updates</button></a>
-                    </div>
-                  </div>
-                </div>
-            <% } %>
+<div class="p-16">
+  <div class="p-8 bg-white shadow mt-24">
+    <div class="grid grid-cols-1 md:grid-cols-3">
+      <div class="relative">
+        <div class="w-48 h-48 bg-indigo-100 mx-auto rounded-full shadow-2xl absolute inset-x-0 top-0 -mt-24 flex items-center justify-center text-indigo-500">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-24 w-24" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd" />
+          </svg>
         </div>
-      </div>  
+      </div>
+  
+      <div class="space-x-8 flex justify-between mt-32 md:mt-0 md:justify-center">
+        <a href="/feed">
+          <button class="text-white py-2 px-4 uppercase rounded bg-blue-400 hover:bg-blue-500 shadow hover:shadow-lg font-medium transition transform hover:-translate-y-0.5">
+            Locations
+          </button>
+        </a>
+        <a href="/logout">
+          <button class="text-white py-2 px-4 uppercase rounded bg-gray-700 hover:bg-gray-800 shadow hover:shadow-lg font-medium transition transform hover:-translate-y-0.5">
+            Logout
+          </button>
+        </a>
+      </div>
     </div>
+  
+    <div class="mt-20 text-center border-b pb-12">
+      <h1 class="text-4xl font-medium text-gray-700"><%= user.userName %></span></h1>
+      <p class="font-light text-gray-600 mt-3"><%= user.email %></p>
+    </div>
+  
+    <div class="mt-12 flex flex-col justify-center">
+      <p class="flex justify-center text-3xl font-bold pb-12">Favorites</p>
+      <div id="favoritesContainer">
+        <% for(i = 0; i < favorites.length; i++){ %>
+            <div class="card w-96 bg-secondary shadow-xl">
+              <div class="card-body">
+                <h2 class="card-title "><%= favorites[i].company%></h2>
+                <p><%= favorites[i].address%></p>
+                <div class="card-actions justify-end">
+                  <a href="/post/<%= favorites[i]._id%>"><button class="btn btn-primary">Check Updates</button></a>
+                </div>
+              </div>
+            </div>
+        <% } %>
+    </div>
+    </div>
+  
   </div>
-</div>
+  </div>
 <%- include('partials/footer') -%>

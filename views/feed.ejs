@@ -20,10 +20,9 @@
 <div class="divider"></div>
 
 
-<div class="container">
-  <div class="row mt-5 space-between">
+<div class="flex flex-row flex-wrap justify-items-center">
     <% for(var i=0; i<posts.length; i++) {%>
-      <div class="card w-96 bg-base-100 shadow-xl">
+      <div class="card w-96 bg-base-100 shadow-xl border-cyan-300 m-5">
         <div class="card-body">
           <h2 class="card-title "><%= posts[i].company%></h2>
           <p><%= posts[i].address%></p>
@@ -33,7 +32,6 @@
         </div>
       </div>
     <% } %>
-  </div>
-</div>  
+</div>
 
 <%- include('partials/footer') -%>
