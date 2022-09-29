@@ -1,6 +1,6 @@
 <%- include('partials/header') -%>
 
-<div class="container">
+<div class="flex justify-center">
   <div class="mt-5">
         <h2>Add a Location</h2>
         <form action="/post/createPost" method="POST">
@@ -22,7 +22,7 @@
 
 <div class="flex flex-row flex-wrap justify-items-center">
     <% for(var i=0; i<posts.length; i++) {%>
-      <div class="card w-96 bg-base-100 shadow-xl border-cyan-300 m-5">
+      <div class="card w-96 bg-sky-500/50 shadow-xl border-cyan-300 m-5">
         <div class="card-body">
           <h2 class="card-title "><%= posts[i].company%></h2>
           <p><%= posts[i].address%></p>
