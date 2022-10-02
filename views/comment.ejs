@@ -42,31 +42,24 @@
   </body>
 </html>
 
-<div class="container">
-  <div class="flex justify-items-center">
-    <div class="col-6">
-      <img class="img-fluid" src="<%= comment.image%>" />
-      <div class="row justify-content-between">
-        <%if(comment.user == user.id){ %>
-        <form
-          action="/comment/deletePost/<%= comment.id %>?_method=DELETE"
-          method="POST"
-          class="col-3"
-        >
-          <button class="btn btn-primary fa fa-trash" type="submit"></button>
-        </form>
-        <%}%>
-      </div>
-    </div>
-    <div class="col-3 mt-5">
-      <p><%= comment.brands %></p>
-    </div>
-    <div class="col-3 mt-5">
-      <p><%= comment.types %></p>
-    </div>
-    <div class="col-6 mt-5">
+
+<div class="hero min-h-screen bg-base-200">
+  <div class="hero-content flex-col lg:flex-row">
+    <img src="<%= comment.image%>" class="max-w-sm rounded-lg shadow-2xl" />
+    <div>
+      <h1 class="text-5xl font-bold"><%=comment.post.Company%></h1>
+      <p class="py-6"><%= comment.brands %>: <%= comment.types %></p>
       <a class="btn btn-primary" href="/post/<%=comment.post._id%>">Return to Location</a>
-      <a class="btn btn-primary" href="/feed">Return to Feed</a>
+      <%if(comment.user == user.id){ %>
+      <form
+        action="/comment/deletePost/<%= comment.id %>?_method=DELETE"
+        method="POST"
+        class="col-3"
+      >
+      <button class="btn btn-primary fa fa-trash" type="submit"></button>
+      <%}%> 
+      </form>
+      
     </div>
   </div>
 </div>
