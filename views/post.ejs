@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="retro">
+<html lang="en" data-theme="autumn">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -43,98 +43,84 @@
 </html>
 
 
-<div class="container">
-  <div class="row justify-content-center mt-5">
-    <div class="col-6" data-id="<%= post._id%>">
-      <h2><%= post.title %></h2>
-      <% if(favorites.includes(post._id)) { %>
-        <button class="unfavorite_btn">Unfavorite</button>
-        <%} else {%>
-        <button class="favorite_btn">Favorite</button>
-      <%}%>
-      <img class="img-fluid" src="<%= post.image%>" />
-      <div class="row justify-content-between">
-        <form
-          class="col-1"
-          action="/post/likePost/<%= post.id %>?_method=PUT"
-          method="POST"
-        >
-        </form>
-        <%if(post.user == user.id){ %>
-        <form
-          action="/post/deletePost/<%= post.id %>?_method=DELETE"
-          method="POST"
-          class="col-3"
-        >
-          <button class="btn btn-primary fa fa-trash" type="submit"></button>
-        </form>
-        <%}%>
-      </div>
-    </div>
-    <div class="col-3 mt-5">
-      <p><%= post.caption %></p>
+
+
+
+
+<div class="col-6 flex justify-center" data-id="<%= post._id%>">
+  <% if(favorites.includes(post._id)) { %>
+      <button type="button" class=" unfavorite_btn text-white bg-gradient-to-br from-pink-500 to-orange-400 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-pink-200 dark:focus:ring-pink-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">Unfavorite</button>
+    <%} else {%>
+      <button class="favorite_btn relative inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-pink-500 to-orange-400 group-hover:from-pink-500 group-hover:to-orange-400 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-pink-200 dark:focus:ring-pink-800">
+        <span class="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
+          Favorite
+        </span>
+      </button>
+  <%}%>
+</div>
+
+<div class="mt-5 px-32">
+  <h2 class="text-5xl font-extrabold dark:text-white flex justify-center">Post an inventory update</h2>
+  <form action="/comment/createComment/<%=post._id%>" enctype="multipart/form-data" method="POST">
+
+    <div class="mb-6">
+      <label for="brands" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Available Brands</label>
+      <input type="text" id="brands" name="brands" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
     </div>
 
-    <div class="mt-5">
-      <h2>Post an inventory update</h2>
-      <form action="/comment/createComment/<%=post._id%>" enctype="multipart/form-data" method="POST">
-        <div class="mb-3">
-            <label for="brands" class="form-label">Available Brands</label>
-            <input type="text" class="form-control" id="brands" name="brands">
-        </div>
-        <div class="mb-3">
-          <label for="types" class="form-label">Types</label>
-          <input class="form-control" id="types" name="types"></input>
-        </div>
-        <div class="mb-3">
-          <label for="imgUpload" class="form-label">Image</label>
-          <input type="file" class="form-control" id="imageUpload" name="file">
-        </div>
-        <button type="submit" class="btn btn-primary" value="Upload">Submit</button>
-      </form>
+    <div class="mb-6 flex flex-col">
+      <label for="types" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Types</label>
+      <input type="text" id="types" name="types" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
     </div>
 
-    <div class="overflow-x-auto relative shadow-md sm:rounded-lg">
-        <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-            <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-                <tr>
-                    <th scope="col" class="py-3 px-6">
-                        Brands
-                    </th>
-                    <th scope="col" class="py-3 px-6">
-                        Types
-                    </th>
-                    <th scope="col" class="py-3 px-6">
-                        Date
-                    </th>
-                    <th scope="col" class="py-3 px-6">
-                        View
-                    </th>
-                </tr>
-            </thead>
-            <% for(let i=0; i<comments.length; i++) {%>
-            <tbody>
-                <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
-                    <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                      <%= comments[i].brands %>
-                    </th>
-                    <td class="py-4 px-6">
-                      <p> 
-                        <%= comments[i].types %>
-                      </p>
-                    </td>
-                    <td class="py-4 px-6">
-                        <%= comments[i].createdAt.toLocaleString() %>
-                    </td>
-                    <td class="py-4 px-6">
-                        <a href="/comment/<%= comments[i]._id%>">View</a>
-                    </td>
-                </tr>
-            </tbody>
-              <% } %>
-        </table>
+    <div class="mb-3">
+      <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300" for="imgUpload">Upload Image</label>
+      <input class="block w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 cursor-pointer dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" aria-describedby="user_avatar_help" id="imageUpload" type="file" name="file">
     </div>
-  </div>
+
+    <button type="submit" class="btn btn-primary" value="Upload">Submit</button>
+  </form>
+</div>
+
+<div class="overflow-x-auto relative shadow-md sm:rounded-lg mt-10">
+    <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+            <tr>
+                <th scope="col" class="py-3 px-6">
+                    Brands
+                </th>
+                <th scope="col" class="py-3 px-6">
+                    Types
+                </th>
+                <th scope="col" class="py-3 px-6">
+                    Date
+                </th>
+                <th scope="col" class="py-3 px-6">
+                    View
+                </th>
+            </tr>
+        </thead>
+        <% for(let i=0; i<comments.length; i++) {%>
+        <tbody>
+            <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
+                <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                  <%= comments[i].brands %>
+                </th>
+                <td class="py-4 px-6">
+                  <p> 
+                    <%= comments[i].types %>
+                  </p>
+                </td>
+                <td class="py-4 px-6">
+                    <%= comments[i].createdAt.toLocaleString() %>
+                </td>
+                <td class="py-4 px-6">
+                    <a href="/comment/<%= comments[i]._id%>">View</a>
+                </td>
+            </tr>
+        </tbody>
+          <% } %>
+    </table>
 </div>
 <script src="../js/main.js"></script>
 
