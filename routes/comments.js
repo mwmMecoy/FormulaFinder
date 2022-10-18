@@ -9,6 +9,6 @@ router.get("/:id", commentsController.getComment);
 
 router.post("/createComment/:id",upload.single("file"), commentsController.createComment);
 
-// router.delete("/deletePost/:id", commentsController.deleteComment);
+router.delete("/deleteComment/:id", commentsController.deleteComment);
 
 module.exports = router;

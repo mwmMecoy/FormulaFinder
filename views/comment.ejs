@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="retro">
+<html lang="en" data-theme="autumn">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -45,14 +45,14 @@
 
 <div class="hero min-h-screen bg-base-200">
   <div class="hero-content flex-col lg:flex-row">
-    <img src="<%= comment.image%>" class="max-w-sm rounded-lg shadow-2xl" />
+    <img src="<%= comment.image%>" class="max-w-xl rounded-lg shadow-2xl" />
     <div>
       <h1 class="text-5xl font-bold"><%=comment.post.Company%></h1>
       <p class="py-6"><%= comment.brands %>: <%= comment.types %></p>
       <a class="btn btn-primary" href="/post/<%=comment.post._id%>">Return to Location</a>
       <%if(comment.user == user.id){ %>
       <form
-        action="/comment/deletePost/<%= comment.id %>?_method=DELETE"
+        action="/comment/deleteComment/<%= comment.id %>?_method=DELETE"
         method="POST"
         class="col-3"
       >

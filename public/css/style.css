@@ -2181,8 +2181,8 @@ html {
   width: 6rem;
 }
 
-.max-w-sm {
-  max-width: 24rem;
+.max-w-xl {
+  max-width: 36rem;
 }
 
 .max-w-xs {
