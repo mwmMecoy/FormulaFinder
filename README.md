@@ -3,7 +3,6 @@ This is a passion project. Having a child during the pandemic made me acutely aw
 
 I've found this helpful even with a small user base, as it can act as a helpful tool to keep track of inventory trends and formula types even for a single user on their trips to their local stores. 
 
-**Link to project:** Not Yet Live
 
 ![alt tag](https://i.imgur.com/L0scswp.png)
 
@@ -20,14 +19,8 @@ If user base was going to increase then implementing a search function would bec
 
 
 ## Lessons Learned:
-How to use cloudinary to allow image uploads.
-First build using TailWindCSS in place of BootStrap.
-
-
-## To Do:
-• Remove remaining snippets of BootStrap and convert to TailWindCSS
-• Add additional display information to location product updates (brands, types)
-• (Future update) brands as types as radial selections instead of string entry
+Used cloudinary to allow image uploads to a database.
+First application built using TailWindCSS in place of BootStrap.
 
 
 
