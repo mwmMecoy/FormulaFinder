@@ -1,5 +1,5 @@
 # Formula Finder
-This is a passion project. Having a child during the pandemic made me accutely aware of the formula shortage and how quickly it could lead to stress. The goal is to create an application that even with the smallest user base can make it more convenient to check the availability of types of formula in your local area.
+This is a passion project. Having a child during the pandemic made me acutely aware of the formula shortage and how quickly it could lead to stress. The goal is to create an application that even with the smallest user base can make it more convenient to check the availability of types of formula in your local area.
 
 I've found this helpful even with a small user base, as it can act as a helpful tool to keep track of inventory trends and formula types even for a single user on their trips to their local stores. 
 
