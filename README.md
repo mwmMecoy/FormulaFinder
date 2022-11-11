@@ -15,7 +15,7 @@ I've found this helpful even with a small user base, as it can act as a helpful 
 My first solo project constructed from the ground up. Started with a simple note taking app that evolved into a note sharing app, and finally built out using the idea of sharing up-to-date inventories of local stores formula selection.
 
 ## Optimizations
-*(optional)*
+If user base was going to increase then implementing a search function would become necessary.
 
 
 
